@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--needed for all firebase applications-->
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+    <!--reference to realtime database-->
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
   </head>
+
+  <input
+    id="message"
+    type="text"
+    placeholder="Text to write to database"
+  /><br />
+  <button id="write">Write</button>
+  <button id="read">Read</button>
+  <div id="status"></div>
 
   <script src="database.js"></script>
 </html>

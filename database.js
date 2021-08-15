@@ -13,4 +13,15 @@
 
   // handle on firebase database
   const db = firebase.database();
+
+  //get elements
+  const message = document.getElementById("message");
+  const write = document.getElementById("write");
+  const read = document.getElementById("read");
+  const status = document.getElementById("status");
+
+  //write
+  write.addEventListener("click", (e) => {
+    const messages = db.ref("messages");
+  });
 })();
