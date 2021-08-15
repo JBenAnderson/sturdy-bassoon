@@ -23,5 +23,32 @@
   //write
   write.addEventListener("click", (e) => {
     const messages = db.ref("messages");
+
+    // simple id from timestamp  Of course not to be used in production!
+    const id = new Date().getTime();
+
+    //write to database
+    messages
+      .child(id)
+      .set({ message: message.value })
+      .then(function () {
+        status.innerHTML = "Wrote to Database!";
+      });
+  });
+
+  // read
+  read.addEventListener("click", (e) => {
+    status.innerHTML = "";
+    const messages = db.ref("messages");
+
+    messages.once("value").then(function (dataSnapshot) {
+      var data = dataSnapshot.val();
+      var keys = Object.keys(data);
+
+      keys.forEach(function (key) {
+        console.log(data[key]);
+        status.innerHTML += JSON.stringify(data[key]) + "<br>";
+      });
+    });
   });
 })();
